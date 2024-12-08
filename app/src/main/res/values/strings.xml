@@ -9,11 +9,11 @@
     <string name="login_forgot_password_text">Forget password</string>
     <string name="proceed_button_text"><![CDATA[Next >]]></string>
     <string name="login_footer_start">New Member?</string>
-    <string name="login_register_text">Log in</string>
-    <string name="login_full_name_text">Full name</string>
-    <string name="login_valid_email_text">Valid Email</string>
-    <string name="login_phone_number_text">Phone number</string>
-    <string name="login_strong_password_text">Strong password</string>
+    <string name="login_register_text">Register</string>
+    <string name="register_full_name_text">Full name</string>
+    <string name="register_valid_email_text">Valid Email</string>
+    <string name="register_phone_number_text">Phone number</string>
+    <string name="register_strong_password_text">Strong password</string>
     <string name="register_main_header_text">Get Started</string>
     <string name="register_second_header_text">by creating a free account</string>
     <string name="register_checkbox_text">By checking the box you agree to our Terms and Conditions</string>

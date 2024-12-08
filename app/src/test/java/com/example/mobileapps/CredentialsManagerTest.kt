@@ -32,4 +32,13 @@ class CredentialsManagerTest {
         assertEquals(true, credentialsManager.isPasswordValid("abc"))
         assertEquals(true, credentialsManager.isPasswordValid("1234"))
     }
+
+    @Test
+    fun correctCredentials() {
+        assertEquals(true, credentialsManager.
+            areCredentialsCorrect(
+                credentialsManager.correct_email,
+                credentialsManager.correct_password)
+        )
+    }
 }
