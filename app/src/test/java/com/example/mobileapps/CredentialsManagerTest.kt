@@ -41,4 +41,15 @@ class CredentialsManagerTest {
                 credentialsManager.correct_password)
         )
     }
+
+    fun remembersCredentials() {
+        var cm = CredentialsManager()
+        assertEquals(true, cm.register("test@mail.com", "abc"))
+        assertEquals(false, cm.register("test@mail.com", "ab"))
+
+        assertEquals(true, cm.areCredentialsCorrect("test@mail.com", "abc"))
+        assertEquals(false, cm.areCredentialsCorrect("test@mail.com", "ab"))
+
+
+    }
 }

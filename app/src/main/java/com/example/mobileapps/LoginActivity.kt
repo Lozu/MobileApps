@@ -11,8 +11,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textview.MaterialTextView
 
 class LoginActivity : AppCompatActivity(R.layout.activity_login) {
-    private val login_manager: CredentialsManager
-        get() = CredentialsManager()
     private val register: TextView
         get() = findViewById(R.id.login_footer_link)
     private val email_field: TextInputEditText
@@ -37,15 +35,17 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
             val email = email_field.text.toString()
             val password = password_field.text.toString()
 
-            if (!login_manager.isEmailValid(email)) {
+            if (!State.login_manager.isEmailValid(email)) {
                 email_field.error = "Invalid email"
-            } else if (!login_manager.isPasswordValid(password)) {
+            } else if (!State.login_manager.isPasswordValid(password)) {
                 password_field.error = "Empty password"
-            } else if (login_manager.areCredentialsCorrect(email, password)) {
+            } else if (State.login_manager.areCredentialsCorrect(email, password)) {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else {
                 button.text = "Invalid credentials. Try again"
+                Log.d("login email", email)
+                Log.d("login password", password)
             }
         }
     }
