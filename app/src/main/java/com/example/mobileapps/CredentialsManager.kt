@@ -33,7 +33,7 @@ class CredentialsManager(__debug: Boolean = false) {
         if (credentials[email] == null) {
             credentials.put(email, password)
             if (debug)
-                credentials.forEach({ (k, v) -> Log.d("saved", k + "/" + v)})
+                credentials.forEach({ (k, v) ->  Log.d("saved", k + "/" + v) })
             return true;
         } else {
             return false;
