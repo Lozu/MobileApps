@@ -11,6 +11,8 @@
     <style name="textEdit" parent="fieldCommon">
         <item name="android:background">@color/light_gray</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">20dp</item>
+
     </style>
 
     <style name="button" parent="fieldCommon">
@@ -18,4 +20,12 @@
         <item name="android:textColor">@color/almost_white</item>
     </style>
 
+    <style name="text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+   <style name="main_header" parent="text">
+       <item name="android:textSize">36sp</item>
+   </style>
 </resources>

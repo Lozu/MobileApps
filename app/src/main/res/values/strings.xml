@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">MobileApps</string>
+    <string name="login_image_description">background</string>
+    <string name="login_header_text">Welcome Back</string>
+    <string name="login_second_header_text">sign in to access your account</string>
+    <string name="login_enter_email_text">Enter your email</string>
+    <string name="login_password_text">Password</string>
+    <string name="login_checkbox_text">Remember me</string>
+    <string name="login_forgot_password_text">Forget password</string>
+    <string name="proceed_button_text"><![CDATA[Next >]]></string>
+    <string name="login_footer_start">New Member?</string>
+    <string name="login_register_text">Log in</string>
+    <string name="login_full_name_text">Full name</string>
+    <string name="login_valid_email_text">Valid Email</string>
+    <string name="login_phone_number_text">Phone number</string>
+    <string name="login_strong_password_text">Strong password</string>
+    <string name="register_main_header_text">Get Started</string>
+    <string name="register_second_header_text">by creating a free account</string>
+    <string name="register_checkbox_text">By checking the box you agree to our Terms and Conditions</string>
+    <string name="register_footer_start">Already a member?</string>
+    <string name="register_footer_login">Log in</string>
+
 </resources>
