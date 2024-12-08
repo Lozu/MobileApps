@@ -1,5 +1,6 @@
 package com.example.mobileapps
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
@@ -26,6 +28,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var checker: CredentialsChecker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        checker = context as CredentialsChecker
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,17 +62,18 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.login_fragment, RegisterFragment())
                 .commit()
+
         }
 
         button.setOnClickListener {
             val email = email_field.text.toString()
             val password = password_field.text.toString()
 
-            if (!State.login_manager.isEmailValid(email)) {
+            if (!checker.isEmailValid(email)) {
                 email_field.error = "Invalid email"
-            } else if (!State.login_manager.isPasswordValid(password)) {
+            } else if (!checker.isPasswordValid(password)) {
                 password_field.error = "Empty password"
-            } else if (State.login_manager.areCredentialsCorrect(email, password)) {
+            } else if (checker.areCredentialsCorrect(email, password)) {
                 startActivity(Intent(activity, MainActivity::class.java))
                 activity?.finish()
             } else {

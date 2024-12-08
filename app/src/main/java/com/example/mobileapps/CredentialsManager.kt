@@ -1,7 +1,6 @@
 package com.example.mobileapps
 
 import android.util.Log
-import androidx.compose.ui.platform.debugInspectorInfo
 
 class CredentialsManager(__debug: Boolean = false) {
     private val regex = Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}")
@@ -12,6 +11,13 @@ class CredentialsManager(__debug: Boolean = false) {
 
     init {
         debug = __debug
+        if (debug)
+            Log.d("manager", "init")
+    }
+
+    fun printMap() {
+        Log.d("mapsize", credentials.size.toString())
+        credentials.forEach({ (k, v) ->  Log.d("saved", "[" + k + "/" + v + "]") })
     }
 
     fun isEmailValid(email: String): Boolean {
@@ -24,8 +30,17 @@ class CredentialsManager(__debug: Boolean = false) {
 
     fun areCredentialsCorrect(email: String, password: String): Boolean {
         val res = credentials[email];
-        if (debug)
-            Log.d("result", if (res == null) { "null" } else { res.toString() })
+
+        if (debug) {
+            printMap()
+            Log.d(
+                "result", if (res == null) {
+                    "null"
+                } else {
+                    res.toString()
+                }
+            )
+        }
         return res == password
     }
 
@@ -33,7 +48,7 @@ class CredentialsManager(__debug: Boolean = false) {
         if (credentials[email] == null) {
             credentials.put(email, password)
             if (debug)
-                credentials.forEach({ (k, v) ->  Log.d("saved", k + "/" + v) })
+               printMap()
             return true;
         } else {
             return false;

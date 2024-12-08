@@ -1,5 +1,6 @@
 package com.example.mobileapps
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -24,6 +25,7 @@ class RegisterFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var saver: CredentialsSaver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,11 @@ class RegisterFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        saver = context as CredentialsSaver
     }
 
     override fun onCreateView(
@@ -59,15 +66,16 @@ class RegisterFragment : Fragment() {
             val email = emailField.text.toString()
             val password = passwordField.text.toString()
 
-            if (!State.login_manager.isEmailValid(email)) {
+            if (!saver.isEmailValid(email)) {
                 emailField.error = "Invalid email"
-            } else if (!State.login_manager.isPasswordValid(email)) {
+            } else if (!saver.isPasswordValid(email)) {
                 passwordField.error = "Empty password"
             } else {
-                val result = State.login_manager.register(email, password)
+                val result = saver.register(email, password)
                 if (result) {
-                    startActivity(Intent(activity, LoginActivity::class.java))
-                    activity?.finish()
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.login_fragment, LoginFragment())
+                        .commit()
                 } else {
                     button.text = "Email already taken"
                 }
