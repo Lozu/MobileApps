@@ -19,5 +19,6 @@
     <string name="register_checkbox_text">By checking the box you agree to our Terms and Conditions</string>
     <string name="register_footer_start">Already a member?</string>
     <string name="register_footer_login">Log in</string>
+    <string name="ativity_main_text">Welcome</string>
 
 </resources>

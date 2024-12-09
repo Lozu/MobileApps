@@ -42,14 +42,13 @@ class CredentialsManagerTest {
         )
     }
 
+    @Test
     fun remembersCredentials() {
-        var cm = CredentialsManager()
+        val cm = CredentialsManager()
         assertEquals(true, cm.register("test@mail.com", "abc"))
         assertEquals(false, cm.register("test@mail.com", "ab"))
 
         assertEquals(true, cm.areCredentialsCorrect("test@mail.com", "abc"))
         assertEquals(false, cm.areCredentialsCorrect("test@mail.com", "ab"))
-
-
     }
 }
