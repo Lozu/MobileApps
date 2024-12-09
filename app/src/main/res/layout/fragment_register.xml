@@ -51,6 +51,7 @@
             app:layout_constraintLeft_toLeftOf="parent">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/textEdit"
+                android:inputType="textPersonName"
                 android:id="@+id/register_name"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,6 +63,7 @@
             app:layout_constraintLeft_toLeftOf="parent">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/textEdit"
+                android:inputType="textEmailAddress"
                 android:id="@+id/register_email"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,6 +75,7 @@
             app:layout_constraintLeft_toLeftOf="parent">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/textEdit"
+                android:inputType="phone"
                 android:id="@+id/register_phone_number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,6 +87,7 @@
             app:layout_constraintLeft_toLeftOf="parent">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/textEdit"
+                android:inputType="textPassword"
                 android:id="@+id/register_password"/>
         </com.google.android.material.textfield.TextInputLayout>
 
