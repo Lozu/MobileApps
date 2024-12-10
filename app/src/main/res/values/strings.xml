@@ -20,5 +20,8 @@
     <string name="register_footer_start">Already a member?</string>
     <string name="register_footer_login">Log in</string>
     <string name="ativity_main_text">Welcome</string>
+    <string name="toggle_fragment">Click Me</string>
+    <string name="fragment_b">Fragment B</string>
+    <string name="fragment_a">Fragment A</string>
 
 </resources>
