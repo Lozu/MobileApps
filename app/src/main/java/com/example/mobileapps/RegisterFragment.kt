@@ -39,9 +39,7 @@ class RegisterFragment : Fragment() {
         val passwordField = view.findViewById<TextInputEditText>(R.id.register_password)
 
         login.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.login_fragment, LoginFragment())
-                .commit()
+            saver.moveToLogin()
         }
 
         button.setOnClickListener {
@@ -55,9 +53,7 @@ class RegisterFragment : Fragment() {
             } else {
                 val result = saver.register(email, password)
                 if (result) {
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.login_fragment, LoginFragment())
-                        .commit()
+                    saver.moveToLogin()
                 } else {
                     button.text = "Email already taken"
                 }

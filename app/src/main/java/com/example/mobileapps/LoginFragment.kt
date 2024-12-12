@@ -40,10 +40,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val password_field = view.findViewById<TextInputEditText>(R.id.login_password)
 
         register.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.login_fragment, RegisterFragment())
-                .commit()
-
+            checker.moveToRegistration()
         }
 
         button.setOnClickListener {
@@ -55,8 +52,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             } else if (!checker.isPasswordValid(password)) {
                 password_field.error = "Empty password"
             } else if (checker.areCredentialsCorrect(email, password)) {
-                startActivity(Intent(activity, MainActivity::class.java))
-                activity?.finish()
+                checker.execOnSuccess()
             } else {
                 button.text = "Invalid credentials. Try again"
                 Log.d("login email", email)

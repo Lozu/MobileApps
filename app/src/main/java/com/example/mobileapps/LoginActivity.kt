@@ -1,5 +1,6 @@
 package com.example.mobileapps
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -26,8 +27,25 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login), CredentialsChe
         return login_manager.areCredentialsCorrect(email, password)
     }
 
+    override fun execOnSuccess() {
+        startActivity(Intent(this, MainActivity::class.java))
+        this.finish()
+    }
+
+    override fun moveToRegistration() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.login_fragment, RegisterFragment())
+            .commit()
+    }
+
     override fun register(email: String, password: String): Boolean {
         return login_manager.register(email, password)
+    }
+
+    override fun moveToLogin() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.login_fragment, LoginFragment())
+            .commit()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
